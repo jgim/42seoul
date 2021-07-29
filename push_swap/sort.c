@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/27 17:16:12 by jgim              #+#    #+#             */
+/*   Updated: 2021/07/27 17:16:13 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		basic_sort(t_stack *a, t_stack *b, int low, int high)
+int	basic_sort(t_stack *a, t_stack *b, int low, int high)
 {
-	int i;
-	int len;
+	int			i;
+	int			len;
 	t_pivot		pivot;
 	t_rewind	rewind;
 
@@ -12,7 +24,7 @@ int		basic_sort(t_stack *a, t_stack *b, int low, int high)
 	init_var(&pivot, &rewind, low, high);
 	if (high - low <= 3)
 		return (three_and_less(a, b, high - low, 1));
-	while(i++ < high - low)
+	while (i++ < high - low)
 	{
 		if (a->top->data.order > pivot.high)
 			rotate_a(a);
@@ -29,8 +41,7 @@ int		basic_sort(t_stack *a, t_stack *b, int low, int high)
 	return (0);
 }
 
-
-int		a_two_b_sort(t_stack *a, t_stack *b, int low, int high)
+int	a_two_b_sort(t_stack *a, t_stack *b, int low, int high)
 {
 	t_pivot		pivot;
 	t_rewind	rewind;
@@ -40,7 +51,7 @@ int		a_two_b_sort(t_stack *a, t_stack *b, int low, int high)
 	if (high - low <= 3)
 		return (three_and_less(a, b, high - low, 1));
 	i = -1;
-	while(++i < high - low)
+	while (++i < high - low)
 	{
 		if (a->top->data.order > pivot.high)
 			rotate_a(a) && rewind.a++;
@@ -57,7 +68,7 @@ int		a_two_b_sort(t_stack *a, t_stack *b, int low, int high)
 	return (b_two_a_sort(a, b, low, pivot.low));
 }
 
-int		b_two_a_sort(t_stack *a, t_stack *b, int low, int high)
+int	b_two_a_sort(t_stack *a, t_stack *b, int low, int high)
 {
 	t_pivot		pivot;
 	t_rewind	rewind;
@@ -67,7 +78,7 @@ int		b_two_a_sort(t_stack *a, t_stack *b, int low, int high)
 	if (high - low <= 3)
 		return (three_and_less(a, b, high - low, 2));
 	i = 0;
-	while(i++ < high - low)
+	while (i++ < high - low)
 	{
 		if (b->top->data.order <= pivot.low)
 			rotate_b(b) && rewind.b++;

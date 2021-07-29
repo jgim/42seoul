@@ -5,43 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/27 17:13:15 by jgim              #+#    #+#              #
-#    Updated: 2021/07/27 17:13:23 by jgim             ###   ########.fr        #
+#    Created: 2021/07/29 23:53:39 by jgim              #+#    #+#              #
+#    Updated: 2021/07/29 23:53:41 by jgim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME	=	push_swap
 
-SRCS	=	push_swap.c\
-			swap_push_stack.c\
-			rotate.c\
-			reverse_rotate.c\
-			sort_utilities.c\
-			sort.c\
-			sort_order.c\
-			check_invalid_argument.c\
-			add_pop_stack.c
+NAME	=	libft.a
 
-OBJS		=	$(SRCS:.c=.o)
+SRCS	=	libft_utilities.c\
+			copy_libft.c\
 
-CC		=	gcc -Wall -Werror -Wextra
+OBJS 	=	$(SRCS:.c=.o)
 
 RM		=	rm -f
 
-LIBFT	=	./libft/libft.a
+CC		=	gcc -Wall -Werror -Wextra
 
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
-	make -C libft/
-	$(CC) $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	ar rcs $(NAME) $(OBJS)
 
 clean	:
-			make clean -C libft
-			$(RM) $(OBJS)
+	$(RM) $(OBJS)
 
-fclean	:
-			make fclean -C libft
-			$(RM) $(OBJS)
-			$(RM) $(NAME)
+fclean	:	clean
+	$(RM) $(NAME)
 
-re		:	fclean all
+re		:	fclean $(NAME)
+
+.PHONY	:	all clean fclean re

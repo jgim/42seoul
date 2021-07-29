@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_utilities.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/27 17:16:17 by jgim              #+#    #+#             */
+/*   Updated: 2021/07/27 17:16:18 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rewind_stack(t_stack *a, t_stack *b, t_rewind rewind)
 {
-	int i;
-	int re_rotate;
+	int	i;
+	int	re_rotate;
 
 	i = 0;
 	re_rotate = 0;
@@ -32,45 +44,46 @@ void	init_var(t_pivot *pivot, t_rewind *rewind, int low, int high)
 	rewind->b = 0;
 }
 
-int		pivot_three(t_stack *a, t_stack *b, int flag)
+int	pivot_three(t_stack *a, t_stack *b, int flag)
 {
-	int pivot;
+	int	pivot;
 
 	if (flag == 1)
 	{
 		pivot = a->top->data.order;
-		if(a->top->down->data.order > pivot)
+		if (a->top->down->data.order > pivot)
 			pivot = a->top->down->data.order;
-		if(a->top->down->down->data.order > pivot)
+		if (a->top->down->down->data.order > pivot)
 			pivot = a->top->down->down->data.order;
 	}
 	else
 	{
 		pivot = b->top->data.order;
-		if(b->top->down->data.order < pivot)
+		if (b->top->down->data.order < pivot)
 			pivot = b->top->down->data.order;
-		if(b->top->down->down->data.order < pivot)
+		if (b->top->down->down->data.order < pivot)
 			pivot = b->top->down->down->data.order;
 	}
 	return (pivot);
 }
 
-int		order_sort(t_stack *a, int num)
+int	order_sort(t_stack *a, int num)
 {
-	int 	i;
+	int		i;
 	t_node	*low_node;
 	t_node	*compare_node;
 
 	i = 0;
-	while(++i <= num)
+	while (++i <= num)
 	{
 		low_node = a->bottom;
-		while(low_node->data.order)
+		while (low_node->data.order)
 			low_node = low_node->up;
 		compare_node = low_node->up;
 		while (compare_node != NULL)
 		{
-			if (low_node->data.value > compare_node->data.value && !compare_node->data.order)
+			if (low_node->data.value > compare_node->data.value
+				&& !compare_node->data.order)
 				low_node = compare_node;
 			else if (low_node->data.value == compare_node->data.value)
 				return (write (1, "Error\n", 6));

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_pop_stack.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/27 17:15:12 by jgim              #+#    #+#             */
+/*   Updated: 2021/07/27 17:15:13 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	add_stack(t_stack *s, t_data data)
@@ -38,7 +50,7 @@ void	r_add_stack(t_stack *s, t_data	data)
 	s->length += 1;
 }
 
-t_data		pop_stack(t_stack *s)
+t_data	pop_stack(t_stack *s)
 {
 	t_data	temp_value;
 	t_node	*temp;
@@ -47,9 +59,9 @@ t_data		pop_stack(t_stack *s)
 	temp_value.order = s->top->data.order;
 	temp = s->top;
 	s->top = s->top->down;
-	free(temp);
+	free (temp);
 	s->length -= 1;
-	if(!s->length)
+	if (!s->length)
 	{
 		s->bottom = NULL;
 		s->top = NULL;
@@ -59,7 +71,7 @@ t_data		pop_stack(t_stack *s)
 	return (temp_value);
 }
 
-t_data		r_pop_stack(t_stack *s)
+t_data	r_pop_stack(t_stack *s)
 {
 	t_data	temp_value;
 	t_node	*temp;
@@ -68,9 +80,9 @@ t_data		r_pop_stack(t_stack *s)
 	temp_value.order = s->bottom->data.order;
 	temp = s->bottom;
 	s->bottom = s->bottom->up;
-	free(temp);
+	free (temp);
 	s->length -= 1;
-	if(!s->length)
+	if (!s->length)
 	{
 		s->top = NULL;
 		s->bottom = NULL;
@@ -78,4 +90,24 @@ t_data		r_pop_stack(t_stack *s)
 	else
 		s->bottom->down = NULL;
 	return (temp_value);
+}
+
+int	input_stack(t_stack *a, char **str, t_data *data)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (!check_num(str[i]) || !check_int(str[i]))
+		{
+			free_word(str, i);
+			return (write(1, "Error\n", 6));
+		}
+		data->value = ft_atoi(str[i]);
+		data->order = 0;
+		r_add_stack(a, *data);
+		free(str[i]);
+	}
+	return (0);
 }

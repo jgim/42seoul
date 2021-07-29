@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap_push_stack.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/27 17:14:58 by jgim              #+#    #+#             */
+/*   Updated: 2021/07/27 17:14:59 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int		swap_a(t_stack *a)
+int	swap_a(t_stack *a)
 {
-	t_data x;
-	t_data y;
+	t_data	x;
+	t_data	y;
 
 	if (a->bottom->up)
 	{
@@ -12,13 +24,13 @@ int		swap_a(t_stack *a)
 		add_stack(a, x);
 		add_stack(a, y);
 	}
-	return (write (1,"sa\n", 3));
+	return (write (1, "sa\n", 3));
 }
 
-int		swap_b(t_stack *b)
+int	swap_b(t_stack *b)
 {
-	t_data x;
-	t_data y;
+	t_data	x;
+	t_data	y;
 
 	if (b->bottom->up)
 	{
@@ -27,13 +39,13 @@ int		swap_b(t_stack *b)
 		add_stack(b, x);
 		add_stack(b, y);
 	}
-	return (write (1,"sb\n", 3));
+	return (write (1, "sb\n", 3));
 }
 
-int		d_swap(t_stack *a, t_stack *b)
+int	d_swap(t_stack *a, t_stack *b)
 {
-	t_data x;
-	t_data y;
+	t_data	x;
+	t_data	y;
 
 	if (a->bottom->up)
 	{
@@ -49,12 +61,12 @@ int		d_swap(t_stack *a, t_stack *b)
 		add_stack(b, x);
 		add_stack(b, y);
 	}
-	return (write (1,"ss\n", 3));
+	return (write (1, "ss\n", 3));
 }
 
-int		push_a(t_stack *a, t_stack *b)
+int	push_a(t_stack *a, t_stack *b)
 {
-	t_data x;
+	t_data	x;
 
 	if (b->bottom)
 	{
@@ -64,10 +76,9 @@ int		push_a(t_stack *a, t_stack *b)
 	return (write(1, "pa\n", 3));
 }
 
-
-int		push_b(t_stack *a, t_stack *b)
+int	push_b(t_stack *a, t_stack *b)
 {
-	t_data x;
+	t_data	x;
 
 	if (a->bottom)
 	{
