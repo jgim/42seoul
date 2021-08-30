@@ -52,4 +52,4 @@ Mkfile.old
 dkms.conf
 
 # 42seoul #
-42seoul/*
+seoul/
