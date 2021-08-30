@@ -21,7 +21,7 @@ SRCS	=	push_swap.c\
 			check_invalid_argument.c\
 			add_pop_stack.c
 
-OBJS		=	$(SRCS:.c=.o)
+OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc -Wall -Werror -Wextra
 
