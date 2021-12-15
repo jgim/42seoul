@@ -31,7 +31,7 @@ void	send_msg(int pid, char *str)
 	len = ft_strlen(str);
 	while (++i <= len)
 	{
-		bit = 1 << 7;
+		bit = 1 << 15;
 		while (bit)
 		{
 			if ((str[i] & bit && kill(pid, SIGUSR1) == -1)

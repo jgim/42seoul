@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <signal.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # define GREEN "\e[1;92m"
 # define RED "\e[1;91m"

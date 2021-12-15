@@ -37,7 +37,7 @@ int	three_and_less(t_stack *a, t_stack *b, int order_gap, int flag)
 
 int	sort_three(t_stack *a, t_stack *b, int flag)
 {
-	int		pivot;
+	int	pivot;
 
 	if (flag == 2)
 		push_a(a, b) && push_a(a, b) && push_a(a, b);

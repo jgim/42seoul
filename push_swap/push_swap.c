@@ -77,5 +77,3 @@ int	main(int argc, char **argv)
 	basic_sort(&a, &b, 0, a.length);
 	return (clear_stack(&a, &b));
 }
-
-..ㅠㅠ ... 미니쉘.. 

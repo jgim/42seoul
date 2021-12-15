@@ -1,0 +1,50 @@
+
+	if(new_history)
+	{
+		if(new_history->up)
+		{
+			ft_putstr_fd("\n up :", STDOUT_FILENO);
+			ft_putstr_fd(new_history->up->cmd, STDOUT_FILENO);
+			ft_putstr_fd("\n", STDOUT_FILENO);
+			if(new_history->up->up)
+			{
+				ft_putstr_fd("\n up up :", STDOUT_FILENO);
+				ft_putstr_fd(new_history->up->up->cmd, STDOUT_FILENO);
+				ft_putstr_fd("\n", STDOUT_FILENO);
+			}
+		}
+	}
+
+
+
+ehco hi "hi" bye > test.txt
+
+**str
+str[0] echo hi
+str[1] hi
+str[2] bye
+str[3] >
+str[4] test.txt
+5개
+
+할당 -> 다시 넣어주고
+
+str[0] ehco
+str[1] hi
+
+str[2] hi
+
+str[3] bye
+
+str[4] >
+
+str[5] test.txt
+
+size = 6
+할당
+또 넣기
+
+cub3d
+free
+malloc
+

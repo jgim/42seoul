@@ -1,0 +1,15 @@
+echo hi > file | cat file
+
+echo
+hi
+>
+file
+|
+cat
+file
+
+echo hi
+>
+file
+|
+cat file

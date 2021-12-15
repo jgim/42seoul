@@ -39,6 +39,7 @@ void	convert_signal(int sig_num, siginfo_t *info, void *value)
 	if (bit == 8)
 	{
 		write(1, &c, 1);
+		usleep(10);
 		if (c == 0)
 		{
 			kill(info->si_pid, SIGUSR2);

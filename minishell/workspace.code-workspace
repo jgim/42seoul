@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"name": "minishell",
+			"uri": "vsls:/"
+		}
+	],
+	"settings": {
+		"vsliveshare.join.reload.workspaceId": "163954B72A12B5EEFED2EC66CADBBAF19A78",
+		"vsliveshare.join.reload.workspaceFolder": "/var/folders/h0/j18zq55j14j44wl0kpvndtqw0000gn/T/vsliveshare/tmp-163954B72A12B5EEFED2EC66CADBBAF19A78",
+		"files.hotExit": "off",
+		"extensions.ignoreRecommendations": true,
+		"files.autoSave": "off",
+		"files.trimTrailingWhitespace": false,
+		"files.insertFinalNewline": false,
+		"typescript.tsc.autoDetect": "off",
+		"jake.autoDetect": "off",
+		"grunt.autoDetect": "off",
+		"gulp.autoDetect": "off",
+		"npm.autoDetect": "off",
+		"debug.allowBreakpointsEverywhere": true,
+		"html.autoClosingTags": false
+	}
+}

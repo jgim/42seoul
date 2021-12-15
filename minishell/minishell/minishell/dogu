@@ -1,0 +1,15 @@
+	if(new_history)
+	{
+		if(new_history->up)
+		{
+			ft_putstr_fd("\n up :", STDOUT_FILENO);
+			ft_putstr_fd(new_history->up->cmd, STDOUT_FILENO);
+			ft_putstr_fd("\n", STDOUT_FILENO);
+			if(new_history->up->up)
+			{
+				ft_putstr_fd("\n up up :", STDOUT_FILENO);
+				ft_putstr_fd(new_history->up->up->cmd, STDOUT_FILENO);
+				ft_putstr_fd("\n", STDOUT_FILENO);
+			}
+		}
+	}

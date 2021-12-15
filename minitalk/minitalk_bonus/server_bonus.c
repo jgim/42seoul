@@ -34,9 +34,9 @@ void	convert_signal(int sig_num, siginfo_t *info, void *value)
 		i++;
 	}
 	if (sig_num == SIGUSR1)
-		c += 1 << (7 - bit);
+		c += 1 << (15 - bit);
 	bit++;
-	if (bit == 8)
+	if (bit == 16)
 	{
 		write(1, &c, 1);
 		if (c == 0)

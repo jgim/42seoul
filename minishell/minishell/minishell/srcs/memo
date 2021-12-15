@@ -1,0 +1,64 @@
+
+
+
+cmd while (|><)
+{
+	명령문 있으면?
+	구조체에 넣고
+	명령문의 파라미터 있으면?
+	구조체의 구조체에 넣고
+}
+| > <
+echo hi > file | cat file
+
+ehco hi
+>>
+file
+|
+cat file
+
+구조체
+1. echo hi -> 1. echo 2. hi
+2. >>
+3. file
+4. |
+5. cat file -> 1. cat 2. file
+
+1. echo
+2. hi
+3. >>
+4. file
+5. |
+6. cat
+7. file
+
+| h | i |
+>> file
+|
+cat file2
+
+hi
+>> 넘겨주기
+fork
+ >> file
+| 넘겨주기
+fork
+cat file2
+
+if (>>)
+	fork_file(), make_file()
+		if (str[i + 1] == strrchr(" ><|"))
+			if (str[i + 1] != ' ')
+				add_pipe();
+			if (str[i + 1] != '| '
+				add_function();
+		else
+			add_function();
+
+echo hi
+>> file
+|
+cat
+
+gnl
+split 공백, >, >> <, <<, |, ||
