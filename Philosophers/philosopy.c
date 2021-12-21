@@ -58,7 +58,6 @@ void	*monitor(void *old_data)
 		end = 0;
 		while (++i < data->num_philo)
 		{
-			current_time = get_time();
 			if (data->must_eat && data->philo[i].eat_count == data->must_eat)
 			{
 				if (++end == data->num_philo)
@@ -67,6 +66,7 @@ void	*monitor(void *old_data)
 					return (0);
 				}
 			}
+			current_time = get_time();
 			if (current_time - data->philo[i].eat_time > data->time_to_die)
 			{
 				dead_time(data, i);
