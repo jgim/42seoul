@@ -66,7 +66,6 @@ void	*monitor(void *old_data)
 					data->end = 1;
 					return (0);
 				}
-				usleep(100);
 			}
 			if (current_time - data->philo[i].eat_time > data->time_to_die)
 			{
