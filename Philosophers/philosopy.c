@@ -13,13 +13,12 @@ int	philosopy(t_data *data)
 			return (write(1, "Thread creation failed\n", 24));
 	}
 	monitor((void *)data);
-	i = 0;
-	pthread_join(data->monitor, NULL);
-	while (i < data->num_philo)
-	{
+	i = -1;
+	while (++i < data->num_philo)
 		pthread_mutex_unlock(&data->forks[i]);
-		pthread_join(data->philo[i++].thread, NULL);
-	}
+	i = -1;
+	while (++i < data->num_philo)
+		pthread_join(data->philo[i].thread, NULL);
 	i = 0;
 	while (i <= data->num_philo)
 		pthread_mutex_destroy(&data->forks[i++]);

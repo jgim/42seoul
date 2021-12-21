@@ -27,10 +27,10 @@ void	meal(t_philosophers *philo, t_data *data)
 	print_philo(philo, data);
 	philo->status = EATING;
 	pthread_mutex_lock(philo->right_fork);
-	pthread_mutex_lock(&philo->data->mutex_eat);
+	// pthread_mutex_lock(&philo->data->mutex_eat);
 	philo->start_eat = get_time();
 	eat_time(philo, data);
-	pthread_mutex_unlock(&philo->data->mutex_eat);
+	// pthread_mutex_unlock(&philo->data->mutex_eat);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
 }
