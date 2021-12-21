@@ -30,7 +30,6 @@ void	init_philo(t_data *data)
 		data->philo[i].data = data;
 		data->philo[i].index = i + 1;
 		data->philo[i].eat_count = 0;
-		data->philo[i].end_eat = get_time();
 		data->philo[i].left_fork = &data->forks[i];
 		if (i + 1 == data->num_philo)
 			data->philo[i].right_fork = &data->forks[0];

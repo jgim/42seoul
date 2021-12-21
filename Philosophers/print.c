@@ -23,21 +23,22 @@ void	print_philo(t_philosophers *philo, t_data *data)
 	}
 	if (philo->status == FORK)
 	{
-		printf("%lldms %d has taken a fork\n",
+		printf("%lld %d has taken a fork\n",
 			(current_time - (data->base_time)), philo->index);
+		philo->status = EATING;
 	}
 	else if (philo->status == EATING)
 	{
-		printf("%lldms %d has taken a fork\n",
+		printf("%lld %d has taken a fork\n",
 			(current_time - (data->base_time)), philo->index);
-		printf("%lldms %d is eating\n",
+		printf("%lld %d is eating\n",
 			(current_time - (data->base_time)), philo->index);
 	}
 	else if (philo->status == SLEEPING)
-		printf("%lldms %d is sleeping\n",
+		printf("%lld %d is sleeping\n",
 			(current_time - (data->base_time)), philo->index);
 	else if (philo->status == THINKING)
-		printf("%lldms %d is thinking\n",
+		printf("%lld %d is thinking\n",
 			(current_time - (data->base_time)), philo->index);
 	pthread_mutex_unlock(&data->mutex_print);
 }
@@ -48,7 +49,7 @@ void dead_time(t_data *data, int i)
 	long long current_time;
 
 	pthread_mutex_lock(&data->mutex_print);
-	printf("%lldms %d died\n", current_time - data->base_time, i + 1);
+	printf("%lld %d died\n", current_time - data->base_time, i + 1);
 	data->dead = 1;
 	pthread_mutex_unlock(&data->mutex_print);
 }

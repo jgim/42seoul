@@ -29,7 +29,7 @@ typedef struct	s_data
 	int	must_eat;
 	int end;
 	int	dead;
-	unsigned long base_time;
+	long long base_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	mutex_print;
 	pthread_mutex_t	mutex_eat;
@@ -47,10 +47,9 @@ typedef struct s_philosophers
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	t_data	*data;
-	unsigned long 	start_eat;
-	unsigned long	end_eat;
-	unsigned long	start_sleep;
-	unsigned long	start_think;
+	long long 	eat_time;
+	long long	start_sleep;
+	long long	start_think;
 }	t_philosophers;
 
 /* philosopy */
@@ -85,5 +84,7 @@ void		init_philo(t_data *data);
 int			ft_atoi(char *str);
 void		ft_putstr_fd(char *s, int fd);
 size_t		ft_strlen(const char *s);
+
+void	my_usleep(int ms);
 
 #endif

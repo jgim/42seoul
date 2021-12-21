@@ -5,7 +5,7 @@ void	philo_life(t_philosophers *philo)
 	t_data *data;
 
 	data = philo->data;
-	if (philo->status == FORK && !philo->data->dead)
+	if (philo->status == FORK)
 	{
 		meal(philo, data);
 		philo->eat_count += 1;
@@ -23,10 +23,15 @@ void	philo_life(t_philosophers *philo)
 
 void	meal(t_philosophers *philo, t_data *data)
 {
-	pthread_mutex_lock(philo->left_fork);
+	if (philo->index % 2 == 0)
+		pthread_mutex_lock(philo->left_fork);
+	else
+		pthread_mutex_lock(philo->right_fork);
 	print_philo(philo, data);
-	philo->status = EATING;
-	pthread_mutex_lock(philo->right_fork);
+	if (philo->index % 2 == 0)
+		pthread_mutex_lock(philo->right_fork);
+	else
+		pthread_mutex_lock(philo->left_fork);
 	eat_time(philo, data);
 	pthread_mutex_unlock(philo->left_fork);
 	pthread_mutex_unlock(philo->right_fork);
@@ -41,19 +46,15 @@ void	think_time(t_philosophers *philo, t_data *data)
 
 void	eat_time(t_philosophers *philo, t_data *data)
 {
-	unsigned long	current_time;
-
-	philo->start_eat = get_time();
 	print_philo(philo, data);
-	current_time = get_time();
-	while(current_time - philo->start_eat < philo->data->time_to_eat)
-		current_time = get_time();
-	philo->end_eat = current_time;
+	philo->eat_time = get_time();
+	while(get_time() - philo->eat_time < philo->data->time_to_eat)
+		usleep(50);
 }
 
 void	sleep_time(t_philosophers *philo, t_data *data)
 {
-	unsigned long	current_time;
+	long long	current_time;
 
 	print_philo(philo, data);
 	while(get_time() - philo->start_sleep < philo->data->time_to_sleep)
