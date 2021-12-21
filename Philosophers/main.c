@@ -14,7 +14,7 @@
 
 int	init(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	data->philo = malloc \
@@ -22,7 +22,7 @@ int	init(t_data *data)
 	data->forks = malloc \
 		(data->num_philo * sizeof(pthread_mutex_t));
 	if (!data->philo || !data->forks)
-		return(print_error(data, "malloc error"));
+		return (print_error(data, "malloc error"));
 	pthread_mutex_init(&data->mutex_print, NULL);
 	while (i < data->num_philo)
 		pthread_mutex_init(&data->forks[i++], NULL);
@@ -34,7 +34,7 @@ int	init(t_data *data)
 
 void	init_philo(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < data->num_philo)
@@ -50,13 +50,13 @@ void	init_philo(t_data *data)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_data data;
+	t_data	data;
 
 	memset(&data, 0, sizeof(t_data));
 	if (check_argv(argc, argv))
-		return(-1);
+		return (-1);
 	data = input_data(argc, argv);
 	if (init(&data))
 		return (-1);

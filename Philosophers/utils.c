@@ -12,7 +12,7 @@
 
 #include "philosophers.h"
 
-int ft_atoi(char *str)
+int	ft_atoi(char *str)
 {
 	int			sign;
 	long long	result;

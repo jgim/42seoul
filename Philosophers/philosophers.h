@@ -32,7 +32,7 @@ enum	e_status
 	END
 };
 
-typedef struct 		s_data
+typedef struct	s_data
 {
 	int				time_to_die;
 	int				num_philo;
@@ -49,7 +49,7 @@ typedef struct 		s_data
 	pthread_t		monitor;
 }					t_data;
 
-typedef struct		s_philosophers
+typedef struct	s_philosophers
 {
 	int				index;
 	int				eat_count;
@@ -59,7 +59,7 @@ typedef struct		s_philosophers
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	t_data			*data;
-	long long 		eat_time;
+	long long		eat_time;
 	long long		start_sleep;
 	long long		start_think;
 }					t_philosophers;
