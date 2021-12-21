@@ -41,6 +41,7 @@ void	think_time(t_philosophers *philo, t_data *data)
 {
 	print_philo(philo, data);
 	philo->status = FORK;
+	usleep(100);
 }
 
 void	eat_time(t_philosophers *philo, t_data *data)
