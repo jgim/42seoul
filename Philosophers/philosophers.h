@@ -6,6 +6,7 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <string.h>
 
 typedef struct s_philosophers t_philosophers;
 
@@ -28,6 +29,7 @@ typedef struct	s_data
 	int	must_eat;
 	int end;
 	int	dead;
+	unsigned long base_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	mutex_print;
 	pthread_mutex_t	mutex_eat;
@@ -45,7 +47,6 @@ typedef struct s_philosophers
 	pthread_mutex_t	*left_fork;
 	pthread_mutex_t	*right_fork;
 	t_data	*data;
-	unsigned long	base_time;
 	unsigned long 	start_eat;
 	unsigned long	end_eat;
 	unsigned long	start_sleep;

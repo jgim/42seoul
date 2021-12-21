@@ -12,7 +12,10 @@ int	print_error(t_data *data, char *str)
 
 void	print_philo(t_philosophers *philo, t_data *data)
 {
+	long long current_time;
+
 	pthread_mutex_lock(&data->mutex_print);
+	current_time = get_time();
 	if (data->dead || data->end)
 	{
 		pthread_mutex_unlock(&data->mutex_print);
@@ -21,21 +24,21 @@ void	print_philo(t_philosophers *philo, t_data *data)
 	if (philo->status == FORK)
 	{
 		printf("%lldms %d has taken a fork\n",
-			(get_time() - (philo->base_time)), philo->index);
+			(current_time - (data->base_time)), philo->index);
 	}
 	else if (philo->status == EATING)
 	{
 		printf("%lldms %d has taken a fork\n",
-			(get_time() - (philo->base_time)), philo->index);
+			(current_time - (data->base_time)), philo->index);
 		printf("%lldms %d is eating\n",
-			(get_time() - (philo->base_time)), philo->index);
+			(current_time - (data->base_time)), philo->index);
 	}
 	else if (philo->status == SLEEPING)
 		printf("%lldms %d is sleeping\n",
-			(get_time() - (philo->base_time)), philo->index);
+			(current_time - (data->base_time)), philo->index);
 	else if (philo->status == THINKING)
 		printf("%lldms %d is thinking\n",
-			(get_time() - (philo->base_time)), philo->index);
+			(current_time - (data->base_time)), philo->index);
 	pthread_mutex_unlock(&data->mutex_print);
 }
 
@@ -45,7 +48,7 @@ void dead_time(t_data *data, int i)
 	long long current_time;
 
 	pthread_mutex_lock(&data->mutex_print);
-	printf("%lldms %d died\n", current_time - data->philo[i].base_time, i + 1);
+	printf("%lldms %d died\n", current_time - data->base_time, i + 1);
 	data->dead = 1;
 	pthread_mutex_unlock(&data->mutex_print);
 }

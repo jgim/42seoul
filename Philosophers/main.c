@@ -29,7 +29,6 @@ void	init_philo(t_data *data)
 	{
 		data->philo[i].data = data;
 		data->philo[i].index = i + 1;
-		data->philo[i].base_time = 0;
 		data->philo[i].eat_count = 0;
 		data->philo[i].end_eat = get_time();
 		data->philo[i].left_fork = &data->forks[i];
@@ -44,6 +43,7 @@ int main(int argc, char **argv)
 {
 	t_data data;
 
+	memset(&data, 0, sizeof(t_data));
 	if (check_argv(argc, argv))
 		return(-1);
 	data = input_data(argc, argv);

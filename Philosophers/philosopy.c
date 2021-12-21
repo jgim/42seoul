@@ -6,6 +6,7 @@ int	philosopy(t_data *data)
 	pthread_t	thread;
 
 	i = -1;
+	data->base_time = get_time();
 	while (++i < data->num_philo)
 	{
 		if (pthread_create(&data->philo[i].thread, NULL,
@@ -18,10 +19,10 @@ int	philosopy(t_data *data)
 		pthread_mutex_unlock(&data->forks[i]);
 	i = -1;
 	while (++i < data->num_philo)
+	{
 		pthread_join(data->philo[i].thread, NULL);
-	i = 0;
-	while (i <= data->num_philo)
 		pthread_mutex_destroy(&data->forks[i++]);
+	}
 	free(data->philo);
 	free(data->forks);
 	return (0);
@@ -32,15 +33,17 @@ void	*start_philosopy(t_philosophers *philo)
 	int i;
 
 	i = 0;
-	philo->base_time = get_time();
 	if (!philo->end_eat)
-		philo->end_eat = philo->base_time;
+		philo->end_eat = philo->data->base_time;
 	philo->status = FORK;
 	if (philo->index % 2)
 		usleep(200);
 	while (philo->eat_count < philo->data->must_eat
 		|| (philo->data->must_eat == 0 && philo->data->dead == 0))
+	{
 		philo_life(philo);
+		usleep(200);
+	}
 	return (0);
 }
 
