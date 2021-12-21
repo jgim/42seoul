@@ -14,7 +14,7 @@
 
 int	philosopy(t_data *data)
 {
-	int	i;
+	int			i;
 	pthread_t	thread;
 
 	i = -1;
@@ -22,8 +22,8 @@ int	philosopy(t_data *data)
 	while (++i < data->num_philo)
 	{
 		data->philo[i].eat_time = get_time();
-		if (pthread_create(&data->philo[i].thread, NULL,
-			(void *)start_philosopy, &data->philo[i]))
+		if (pthread_create(&data->philo[i].thread, NULL,\
+		(void *)start_philosopy, &data->philo[i]))
 			return (write(1, "Thread creation failed\n", 24));
 	}
 	monitor((void *)data);
@@ -43,12 +43,12 @@ int	philosopy(t_data *data)
 
 void	*start_philosopy(t_philosophers *philo)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	philo->status = FORK;
 	if (philo->index % 2)
-		while(get_time() - philo->eat_time < philo->data->time_to_eat)
+		while (get_time() - philo->eat_time < philo->data->time_to_eat)
 			usleep(100);
 	while (philo->eat_count < philo->data->must_eat
 		|| (philo->data->must_eat == 0 && philo->data->dead == 0))
@@ -58,13 +58,13 @@ void	*start_philosopy(t_philosophers *philo)
 
 void	*monitor(void *old_data)
 {
-	t_data *data;
-	long long current_time;
-	int	i;
-	int end;
+	t_data		*data;
+	long long	current_time;
+	int			i;
+	int			end;
 
 	data = (t_data *)old_data;
-	while(1)
+	while (1)
 	{
 		i = -1;
 		end = 0;

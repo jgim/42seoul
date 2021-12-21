@@ -14,7 +14,7 @@
 
 void	philo_life(t_philosophers *philo)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = philo->data;
 	if (philo->status == FORK)
@@ -60,7 +60,7 @@ void	eat_time(t_philosophers *philo, t_data *data)
 {
 	print_philo(philo, data);
 	philo->eat_time = get_time();
-	while(get_time() - philo->eat_time < philo->data->time_to_eat)
+	while (get_time() - philo->eat_time < philo->data->time_to_eat)
 		usleep(100);
 }
 
@@ -69,7 +69,6 @@ void	sleep_time(t_philosophers *philo, t_data *data)
 	long long	current_time;
 
 	print_philo(philo, data);
-	while(get_time() - philo->start_sleep < philo->data->time_to_sleep)
+	while (get_time() - philo->start_sleep < philo->data->time_to_sleep)
 		usleep(100);
 }
-

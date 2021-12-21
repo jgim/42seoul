@@ -24,7 +24,7 @@ int	print_error(t_data *data, char *str)
 
 void	print_philo(t_philosophers *philo, t_data *data)
 {
-	long long current_time;
+	long long	current_time;
 
 	pthread_mutex_lock(&data->mutex_print);
 	current_time = get_time();
@@ -55,10 +55,9 @@ void	print_philo(t_philosophers *philo, t_data *data)
 	pthread_mutex_unlock(&data->mutex_print);
 }
 
-
-void dead_time(t_data *data, int i)
+void	dead_time(t_data *data, int i)
 {
-	long long current_time;
+	long long	current_time;
 
 	pthread_mutex_lock(&data->mutex_print);
 	printf("%lld %d died\n", current_time - data->base_time, i + 1);

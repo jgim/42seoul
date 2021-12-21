@@ -12,7 +12,6 @@
 
 #include "philosophers.h"
 
-
 int	check_valid_argument(char *str)
 {
 	if (!str)
