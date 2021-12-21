@@ -20,7 +20,7 @@
 # include <sys/time.h>
 # include <string.h>
 
-typedef struct s_philosophers t_philosophers;
+typedef struct	s_philosophers	t_philosophers;
 
 enum	e_status
 {
@@ -32,21 +32,21 @@ enum	e_status
 	END
 };
 
-typedef struct	s_data
+typedef struct s_data
 {
-	int time_to_die;
-	int num_philo;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	must_eat;
-	int end;
-	int	dead;
-	long long base_time;
+	int				time_to_die;
+	int				num_philo;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				must_eat;
+	int				end;
+	int				dead;
+	long long		base_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	mutex_print;
 	pthread_mutex_t	mutex_eat;
 	t_philosophers	*philo;
-	pthread_t	monitor;
+	pthread_t		monitor;
 }				t_data;
 
 typedef struct s_philosophers
@@ -67,7 +67,7 @@ typedef struct s_philosophers
 /* philosopy */
 int			philosopy(t_data *data);
 void		*start_philosopy(t_philosophers *philo);
-void		*monitor(void *old_data);
+void		*monitor(t_data *data);
 
 /*philosophers*/
 void		philo_life(t_philosophers *philo);

@@ -40,6 +40,7 @@ void	meal(t_philosophers *philo, t_data *data)
 	else
 		pthread_mutex_lock(philo->right_fork);
 	print_philo(philo, data);
+	philo->status = EATING;
 	if (philo->index % 2 == 0)
 		pthread_mutex_lock(philo->right_fork);
 	else

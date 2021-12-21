@@ -24,34 +24,28 @@ int	print_error(t_data *data, char *str)
 
 void	print_philo(t_philosophers *philo, t_data *data)
 {
-	long long	current_time;
-
 	pthread_mutex_lock(&data->mutex_print);
-	current_time = get_time();
 	if (data->dead || data->end)
 	{
 		pthread_mutex_unlock(&data->mutex_print);
 		return ;
 	}
 	if (philo->status == FORK)
-	{
 		printf("%lld %d has taken a fork\n",
-			(current_time - (data->base_time)), philo->index);
-		philo->status = EATING;
-	}
+			(get_time() - (data->base_time)), philo->index);
 	else if (philo->status == EATING)
 	{
 		printf("%lld %d has taken a fork\n",
-			(current_time - (data->base_time)), philo->index);
+			(get_time() - (data->base_time)), philo->index);
 		printf("%lld %d is eating\n",
-			(current_time - (data->base_time)), philo->index);
+			(get_time() - (data->base_time)), philo->index);
 	}
 	else if (philo->status == SLEEPING)
 		printf("%lld %d is sleeping\n",
-			(current_time - (data->base_time)), philo->index);
+			(get_time() - (data->base_time)), philo->index);
 	else if (philo->status == THINKING)
 		printf("%lld %d is thinking\n",
-			(current_time - (data->base_time)), philo->index);
+			(get_time() - (data->base_time)), philo->index);
 	pthread_mutex_unlock(&data->mutex_print);
 }
 
