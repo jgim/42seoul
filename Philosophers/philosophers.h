@@ -9,14 +9,14 @@
 
 typedef struct s_philosophers t_philosophers;
 
-
 enum	e_status
 {
 	FORK,
 	EATING,
 	SLEEPING,
 	THINKING,
-	DIED
+	DIED,
+	END
 };
 
 typedef struct	s_data
@@ -51,19 +51,14 @@ typedef struct s_philosophers
 	unsigned long	start_think;
 }	t_philosophers;
 
-
-#endif
-
-/* eat */
-void		philo_fork(t_philosophers **philo, int num_philo, int i);
-void		putdown_forks(t_philosophers *philo);
-void		hold_forks(t_philosophers *philo);
-void		putdown_forks(t_philosophers *philo);
-void		hold_forks(t_philosophers *philo);
+/* philosopy */
+int			philosopy(t_data *data);
+void		*start_philosopy(t_philosophers *philo);
+void		*monitor(void *old_data);
 
 /*philosophers*/
-void		*start_philosopy(t_philosophers *philo);
 void		philo_life(t_philosophers *philo);
+void		meal(t_philosophers *philo);
 void		think_time(t_philosophers *philo);
 void		eat_time(t_philosophers *philo);
 void		sleep_time(t_philosophers *philo);
@@ -72,9 +67,7 @@ void		sleep_time(t_philosophers *philo);
 int			print_error(t_data *data, char *str);
 void		print_philo(t_philosophers *philo);
 long long	get_time(void);
-
-/*time*/
-long long	get_time(void);
+void 		dead_time(t_data *data, int i);
 
 /*data_management*/
 t_data		input_data(int argc, char **argv);
@@ -83,7 +76,12 @@ int			check_valid_argument(char *str);
 
 
 /*main*/
-int			philosopy(t_data *data);
-void		*monitor(t_data *data);
-void		print_philo(t_philosophers *philo);
-int			init_philo(t_data *data);
+int			init(t_data *data);
+void		init_philo(t_data *data);
+
+/*utils*/
+int			ft_atoi(char *str);
+void		ft_putstr_fd(char *s, int fd);
+size_t		ft_strlen(const char *s);
+
+#endif

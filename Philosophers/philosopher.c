@@ -1,33 +1,11 @@
 #include "philosophers.h"
 
-void	*start_philosopy(t_philosophers *philo)
-{
-	int i;
-
-	i = 0;
-	philo->base_time = get_time();
-	if (!philo->end_eat)
-		philo->end_eat = philo->base_time;
-	philo->status = FORK;
-	if (philo->index % 2 == 0)
-		while (get_time()
-			- philo->base_time < philo->data->time_to_eat)
-			usleep(1000);
-	while (philo->eat_count < philo->data->must_eat
-		|| philo->data->must_eat == 0)
-		philo_life(philo);
-}
-
 void	philo_life(t_philosophers *philo)
 {
-	if (philo->status == FORK)
+	if (philo->status == FORK && !philo->data->dead)
 	{
-		hold_forks(philo);
-		philo->start_eat = get_time();
-		eat_time(philo);
-		putdown_forks(philo);
+		meal(philo);
 		philo->eat_count += 1;
-		philo->end_eat = get_time();
 		philo->status = SLEEPING;
 		usleep(100);
 	}
@@ -39,6 +17,18 @@ void	philo_life(t_philosophers *philo)
 	}
 	else if (philo->status == THINKING)
 		think_time(philo);
+}
+
+void	meal(t_philosophers *philo)
+{
+	pthread_mutex_lock(philo->left_fork);
+	print_philo(philo);
+	philo->status = EATING;
+	pthread_mutex_lock(philo->right_fork);
+	philo->start_eat = get_time();
+	eat_time(philo);
+	pthread_mutex_unlock(philo->left_fork);
+	pthread_mutex_unlock(philo->right_fork);
 }
 
 void	think_time(t_philosophers *philo)
@@ -54,9 +44,9 @@ void	eat_time(t_philosophers *philo)
 
 	print_philo(philo);
 	current_time = get_time();
-	philo->eat_count++;
 	while(current_time - philo->start_eat < philo->data->time_to_eat)
 		current_time = get_time();
+	philo->end_eat = current_time;
 }
 
 void	sleep_time(t_philosophers *philo)

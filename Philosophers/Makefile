@@ -1,11 +1,11 @@
 NAME	=	philo
 
 SRCS	=	main.c \
-			data_management \
-			eat.c \
-			philsopher.c \
+			data_management.c \
+			philosopy.c \
+			philosopher.c \
 			print.c \
-			time.c
+			utils.c \
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -14,8 +14,6 @@ CC		=	gcc
 FLAGS	=	-Wall -Werror -Wextra
 
 RM		=	rm -f
-
-LIBFT	=	./libft/libft.a
 
 all		:	$(NAME)
 
