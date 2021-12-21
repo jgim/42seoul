@@ -60,11 +60,14 @@ void	*monitor(void *old_data)
 		{
 			current_time = get_time();
 			if (data->must_eat && data->philo[i].eat_count == data->must_eat)
+			{
 				if (++end == data->num_philo)
 				{
 					data->end = 1;
 					return (0);
 				}
+				usleep(100);
+			}
 			if (current_time - data->philo[i].eat_time > data->time_to_die)
 			{
 				dead_time(data, i);
