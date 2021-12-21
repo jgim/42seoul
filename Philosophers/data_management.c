@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   data_management.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/22 08:08:33 by jgim              #+#    #+#             */
+/*   Updated: 2021/12/22 08:08:34 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 
@@ -30,7 +42,7 @@ t_data	input_data(int argc, char **argv)
 
 int	check_argv(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argc == 6)
@@ -38,10 +50,10 @@ int	check_argv(int argc, char **argv)
 			return (1);
 	if (argc == 5)
 		if (!ft_atoi(argv[1]))
-			return(1);
+			return (1);
 	if (!(argc == 5 || argc == 6))
 		return (write(1, "Invalid number of arguments\n", 29));
-	while(argv[++i])
+	while (argv[++i])
 	{
 		if (check_valid_argument(argv[i]))
 			return (write(1, "Invalid argument\n", 18));
