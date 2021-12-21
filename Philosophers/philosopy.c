@@ -37,10 +37,8 @@ void	*start_philosopy(t_philosophers *philo)
 	if (!philo->end_eat)
 		philo->end_eat = philo->base_time;
 	philo->status = FORK;
-	if (philo->index % 2 == 0)
-		while (get_time()
-			- philo->base_time < philo->data->time_to_eat)
-			usleep(1000);
+	if (philo->index % 2)
+		usleep(200);
 	while (philo->eat_count < philo->data->must_eat
 		|| (philo->data->must_eat == 0 && philo->data->dead == 0))
 		philo_life(philo);

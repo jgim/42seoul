@@ -30,6 +30,7 @@ typedef struct	s_data
 	int	dead;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	mutex_print;
+	pthread_mutex_t	mutex_eat;
 	t_philosophers	*philo;
 	pthread_t	monitor;
 }				t_data;
@@ -58,14 +59,14 @@ void		*monitor(void *old_data);
 
 /*philosophers*/
 void		philo_life(t_philosophers *philo);
-void		meal(t_philosophers *philo);
-void		think_time(t_philosophers *philo);
-void		eat_time(t_philosophers *philo);
-void		sleep_time(t_philosophers *philo);
+void		meal(t_philosophers *philo, t_data *data);
+void		think_time(t_philosophers *philo, t_data *data);
+void		eat_time(t_philosophers *philo, t_data *data);
+void		sleep_time(t_philosophers *philo, t_data *data);
 
 /*print*/
 int			print_error(t_data *data, char *str);
-void		print_philo(t_philosophers *philo);
+void		print_philo(t_philosophers *philo, t_data *data);
 long long	get_time(void);
 void 		dead_time(t_data *data, int i);
 
