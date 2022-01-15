@@ -1,6 +1,6 @@
 #include "phonebook.hpp"
 
-Phonebook::Phonebook(){
+PhoneBook::PhoneBook(){
 	m_index = 0;
 };
 
@@ -10,7 +10,7 @@ Phonebook::Phonebook(){
 /* The PhoneBook must be represented as as an instance of a class */
 /* it must contain an array of contact */
 
-void Phonebook::addPhonebook(){
+void PhoneBook::addPhoneBook(){
 	if(m_index == MAX)
 		m_index = 0;
 	m_contact[m_index++].addContact();
@@ -22,7 +22,7 @@ void Phonebook::addPhonebook(){
 /* Each column must be 10 chars wide, right aligned and separated by a ’|’ character */
 /* Any output longer than the columns’ width is truncated and the last displayable character is replaced by a dot (’.’) */
 
-void Phonebook::searchPhonebook(){
+void PhoneBook::searchPhoneBook(){
 	int i;
 
 	for (i = 0; i < MAX; i++){
@@ -34,7 +34,7 @@ void Phonebook::searchPhonebook(){
 			std::cout << "|     index|first name| last name|  nickname|" << std::endl;
 			std::cout << "|-------------------------------------------|" << std::endl;
 		}
-		m_contact[i].printPhonebook(i);
+		m_contact[i].printPhoneBook(i);
 	}
 	if (i == 0)
 		std::cout << "빈 페이지입니다." << std::endl;
@@ -42,7 +42,7 @@ void Phonebook::searchPhonebook(){
 		inputIndex(i);
 }
 
-void Phonebook::inputIndex(int max_index){
+void PhoneBook::inputIndex(int max_index){
 	int i;
 
 	while(42){

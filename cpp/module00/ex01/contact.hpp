@@ -16,7 +16,7 @@ public:
 	Contact();
 	void addContact();
 	bool getCreated();
-	void printPhonebook(int i);
+	void printPhoneBook(int i);
 	void readContact();
 	~Contact(){};
 };

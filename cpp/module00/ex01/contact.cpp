@@ -1,4 +1,4 @@
-#include "phonebook.hpp"
+#include "PhoneBook.hpp"
 
 Contact::Contact(){
 	m_creation = false;
@@ -32,7 +32,7 @@ void Contact::readContact(){
 	std::cout << "-----------------------------------------" << std::endl;
 }
 
-void Contact::printPhonebook(int i){
+void Contact::printPhoneBook(int i){
 	std::cout << "|         " << i + 1;
 	if (m_first_name.length() < 10)
 		std::cout << '|' << std::setw(10) << m_first_name;

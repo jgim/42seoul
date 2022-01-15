@@ -7,18 +7,18 @@
 # include <iomanip>
 # define MAX 8
 
-class Phonebook
+class PhoneBook
 {
 private:
 	Contact		m_contact[MAX];
 	int			m_index;
 public:
-	Phonebook();
-	void addPhonebook();
-	void searchPhonebook();
+	PhoneBook();
+	void addPhoneBook();
+	void searchPhoneBook();
 	void inputIndex(int max_index);
 	void readContact();
-	~Phonebook(){};
+	~PhoneBook(){};
 };
 
 #endif
