@@ -1,4 +1,4 @@
-#include "Zombie.hpp"
+#include "zombie.hpp"
 #define N 10
 
 int	main(void)

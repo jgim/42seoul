@@ -4,7 +4,6 @@ SRCS	=	main.cpp \
 			ZombieHorde.cpp \
 			Zombie.cpp
 
-
 OBJS	=	$(SRCS:.c=.o)
 
 CC		=	c++

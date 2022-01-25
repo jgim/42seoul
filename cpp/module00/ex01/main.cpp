@@ -1,8 +1,21 @@
-#include "phonebook.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 23:13:53 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/25 23:13:54 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 int main()
 {
-	Phonebook phonebook;
+	PhoneBook phonebook;
 	std::string text;
 /* Implement the function of EXIT */
 /* The program quits and the contacts are lost forever */
@@ -13,9 +26,9 @@ int main()
 		if (text == "EXIT")
 			break;
 		else if (text == "ADD")
-			phonebook.addPhonebook();
+			phonebook.addPhoneBook();
 		else if (text == "SEARCH")
-			phonebook.searchPhonebook();
+			phonebook.searchPhoneBook();
 		else
 			std::cout << "값이 잘못 입력되었습니다. (EXIT, ADD, SEARCH)" << std::endl;
 	}

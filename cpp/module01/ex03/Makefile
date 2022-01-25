@@ -1,4 +1,4 @@
-NAME	=	Account
+NAME	=	weapon
 
 SRCS	=	main.cpp \
 			HumanA.cpp \

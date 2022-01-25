@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 23:13:44 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/25 23:13:45 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include "contact.hpp"
+# include "Contact.hpp"
 # include <iostream>
 # include <string>
 # include <iomanip>
@@ -10,8 +22,8 @@
 class PhoneBook
 {
 private:
-	Contact		m_contact[MAX];
-	int			m_index;
+	Contact		_contact[MAX];
+	int			_index;
 public:
 	PhoneBook();
 	void addPhoneBook();

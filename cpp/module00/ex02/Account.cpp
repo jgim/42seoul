@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/25 23:14:06 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/25 23:14:07 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
@@ -20,6 +32,8 @@ Account::Account(int initial_deposit)
 	_nbWithdrawals = 0;
 	_nbAccounts++;
 	_totalAmount += _amount;
+	if (_accountIndex == 0)
+	std::cout << "---------------------------------------------------------------------" << std::endl;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex  << ';';
 	std::cout << "amount:" <<_amount << ';';
@@ -28,15 +42,22 @@ Account::Account(int initial_deposit)
 
 void	Account::displayAccountsInfos()
 {
+	std::cout << "---------------------------------------------------------------------" << std::endl;
 	_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts() << ';';
 	std::cout << "total:" << getTotalAmount() << ';';
 	std::cout << "deposits:" << getNbDeposits() << ';';
 	std::cout << "withdrawals:" << getNbWithdrawals() << ';' << std::endl;
+	std::cout << "---------------------------------------------------------------------" << std::endl;
 }
 
 void	Account::displayStatus() const
 {
+	if (_accountIndex == 0)
+	{
+		std::cout << std::endl;
+		std::cout << "---------------------------------------------------------------------" << std::endl;
+	}
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ';';
 	std::cout << "amount:" << _amount << ';';
@@ -57,11 +78,13 @@ void	Account::_displayTimestamp()
 	std::cout << std::setfill('0') << std::setw(2) << tm->tm_hour;
 	std::cout << std::setfill('0') << std::setw(2) << tm->tm_min;
 	std::cout << std::setfill('0') << std::setw(2) << tm->tm_sec;
-	std::cout << ']';
+	std::cout << "] ";
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
+	if (_accountIndex == 0)
+		std::cout << "---------------------------------------------------------------------" << std::endl;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ';';
 	std::cout << "p_amount:" << _amount << ';';
@@ -69,12 +92,13 @@ bool	Account::makeWithdrawal(int withdrawal)
 	if (!checkAmount())
 	{
 		_amount += withdrawal;
-		std::cout << "withdrwal:refused" << std::endl;
+		std::cout << "withdrawal:refused" << std::endl;
 		return (false);
 	}
 	_nbWithdrawals += 1;
 	_totalNbWithdrawals += 1;
-	std::cout << "withdral:" << withdrawal << ';';
+	_totalAmount -= withdrawal;
+	std::cout << "withdrawal:" << withdrawal << ';';
 	std::cout << "amount" << _amount << ';';
 	std::cout << "nb_withdrawals" << _nbWithdrawals << std::endl;
 	return (true);
@@ -83,6 +107,8 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 void	Account::makeDeposit(int deposit)
 {
+	if (_accountIndex == 0)
+		std::cout << "---------------------------------------------------------------------" << std::endl;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ';';
 	std::cout << "p_amount:" << _amount << ';';
@@ -105,9 +131,11 @@ int	Account::checkAmount() const
 Account::~Account (void)
 {
 	_displayTimestamp();
-	_nbAccounts--;
-	_totalAmount -= _amount;
 	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "amount:" << _amount << ";";
 	std::cout << "closed" << std::endl;
+	_nbAccounts--;
+	_totalAmount -= _amount;
+	if (_accountIndex == 0)
+		std::cout << "---------------------------------------------------------------------" << std::endl;
 }

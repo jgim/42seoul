@@ -16,7 +16,11 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-fclean	:
+clean	:
+			$(RM) *.txt
+			$(RM) *.replace
+
+fclean	:	clean
 			$(RM) $(NAME)
 
 re		:	fclean all
