@@ -1,6 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/29 02:47:54 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/29 02:47:55 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "HumanB.hpp"
 #include "Weapon.hpp"
+
+HumanB::HumanB()
+{
+	_name = "Unknown";
+	_weapon = 0;
+}
 
 HumanB::HumanB(std::string name)
 {

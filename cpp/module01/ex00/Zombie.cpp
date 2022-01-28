@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/29 02:46:22 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/29 02:46:24 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 Zombie::Zombie()
@@ -8,8 +20,8 @@ Zombie::Zombie()
 
 Zombie::Zombie(std::string name)
 {
-	std::cout << name << " is created" << std::endl;
 	_name = name;
+	std::cout << _name << " is created" << std::endl;
 }
 
 void	Zombie::announce()

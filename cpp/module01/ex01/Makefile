@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/29 02:46:43 by jgim              #+#    #+#              #
+#    Updated: 2022/01/29 02:46:44 by jgim             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	Zombie
 
 SRCS	=	main.cpp \
@@ -6,16 +18,16 @@ SRCS	=	main.cpp \
 
 OBJS	=	$(SRCS:.c=.o)
 
-CC		=	c++
+CXX			=	clang++ -std=c++98
 
-FLAGS	=	-Wall -Werror -Wextra
+CXXFLAGS	=	-Wall -Werror -Wextra
 
 RM		=	rm -f
 
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 fclean	:
 			$(RM) $(NAME)

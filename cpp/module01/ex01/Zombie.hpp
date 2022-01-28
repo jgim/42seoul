@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/29 02:46:54 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/29 02:46:55 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
@@ -8,7 +20,6 @@ class Zombie
 {
 	private:
 		std::string _name;
-		int			_index;
 
 	public:
 		Zombie();
@@ -16,7 +27,7 @@ class Zombie
 		~Zombie();
 		void		announce(void);
 		std::string	getName(void);
-		void		setName(std::string name, int i);
+		void		setName(std::string name);
 };
 
 Zombie* zombieHorde(int N, std::string name);

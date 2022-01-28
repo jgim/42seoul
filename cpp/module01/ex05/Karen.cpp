@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Karen.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/29 02:49:22 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/29 02:49:23 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Karen.hpp"
 
 Karen::Karen()
 {
-	std::cout << "나는 생성자다" << std::endl;
+	std::cout << "생성자를 호출하였습니다." << std::endl;
 }
 
 Karen::~Karen()
 {
-	std::cout << "나는 소멸자다" << std::endl;
+	std::cout << "소멸자를 호출하였습니다." << std::endl;
 }
 
 void	Karen::debug(void)
@@ -51,10 +63,7 @@ void	Karen::complain(std::string level)
 		&Karen::error
 	};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	while (i < 4)
-	{
+	for (i = 0; i < 4; i++)
 		if (levels[i] == level)
 			(this->*f[i])();
-		i++;
-	}
 }

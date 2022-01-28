@@ -1,26 +1,38 @@
-NAME	=	zombie
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/29 02:45:44 by jgim              #+#    #+#              #
+#    Updated: 2022/01/29 02:45:58 by jgim             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS	=	main.cpp \
-			newZombie.cpp \
-			randomChump.cpp \
-			Zombie.cpp
+NAME		=	zombie
+
+SRCS		=	main.cpp \
+				newZombie.cpp \
+				randomChump.cpp \
+				Zombie.cpp
 
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS		=	$(SRCS:.c=.o)
 
-CC		=	c++
+CXX			=	clang++ -std=c++98
 
-FLAGS	=	-Wall -Werror -Wextra
+CXXFLAGS	=	-Wall -Werror -Wextra
 
-RM		=	rm -f
+RM			=	rm -f
 
-all		:	$(NAME)
+all			:	$(NAME)
 
-$(NAME)	:	$(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME)		:	$(OBJS)
+		$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-fclean	:
-			$(RM) $(NAME)
+fclean		:
+				$(RM) $(NAME)
 
-re		:	fclean all
+re			:	fclean all
 
