@@ -67,7 +67,7 @@ void	Karen::complain(std::string level)
 
 		default:
 			std::cout << std::endl;
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			std::cout << "[[Error] Usage: ./[karenFilter][DEBUG / INFO / WARNING / ERROR]" << std::endl;
 			std::cout << std::endl;
 	}
 }

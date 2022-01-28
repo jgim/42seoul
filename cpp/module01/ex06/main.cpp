@@ -7,6 +7,6 @@ int main(int argc, char **argv)
 	if (argc == 2)
 		karen.complain(argv[1]);
 	else
-		std::cout << "The argument is not valid." << std::endl;
+		std::cout << "Usage: ./[karenFilter][DEBUG / INFO / WARNING / ERROR]" << std::endl;
 	return (0);
 }
