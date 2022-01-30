@@ -1,20 +1,22 @@
-NAME	=	karen
+NAME	=	Bsp
 
 SRCS	=	main.cpp \
-			Fixed.cpp
+			Fixed.cpp \
+			Point.cpp \
+			Bsp.cpp
 
 OBJS	=	$(SRCS:.c=.o)
 
-CC		=	clang++ -std=c++98
+CXX			=	clang++
 
-FLAGS	=	-Wall -Werror -Wextra
+CXXFLAGS	=	-Wall -Werror -Wextra
 
 RM		=	rm -f
 
 all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 fclean	:
 			$(RM) $(NAME)

@@ -1,23 +1,26 @@
-NAME	=	karen
+NAME		=	fixed
 
-SRCS	=	main.cpp \
-			Fixed.cpp
+SRCS		=	main.cpp \
+				Fixed.cpp
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS		=	$(SRCS:.c=.o)
 
-CC		=	clang++ -std=c++98
+CXX			=	clang++
 
-FLAGS	=	-Wall -Werror -Wextra
+CXXFLAGS	=	-Wall -Werror -Wextra
 
-RM		=	rm -f
+RM			=	rm -f
 
-all		:	$(NAME)
+all			:	$(NAME)
 
-$(NAME)	:	$(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+$(NAME)		:	$(OBJS)
+		$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-fclean	:
-			$(RM) $(NAME)
+clean		:
+				$(RM) $(NAME)
 
-re		:	fclean all
+fclean		:
+				$(RM) $(NAME)
+
+re			:	fclean all
 

@@ -1,3 +1,6 @@
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 #include <cmath>
 
@@ -46,4 +49,6 @@ public:
 	static	Fixed & max(Fixed& left_fixed, Fixed& right_fixed);
 };
 
-std::ostream & operator<<(std::ostream & o, const Fixed & rhs);
+std::ostream & operator<<(std::ostream & o, const Fixed &fixed);
+
+#endif

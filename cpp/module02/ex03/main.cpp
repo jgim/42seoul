@@ -1,21 +1,17 @@
 #include "Point.hpp"
 
-int main(void) {
-  Point a(0.0, 0.0);
-  Point b(0.0, 4.0);
-  Point c(5.0, 0.0);
-  Point hit1(1.0, 1.0);
-  Point hit2(10.0, 10.0);
+int main( void ) {
+  Point a1(4, 0), b1(4, 2), c1(0, 0), p1(4, 1);
+  Point a2(0, 0), b2(0, 4), c2(4, 0), p2(0, 0);
+  Point a3(0, 0), b3(0, 4), c3(4, 0), p3(1, 1);
+  Point a4(0, 0), b4(0, 4), c4(4, 0), p4(2, 2);
+  Point a5(0, 0), b5(0, 4), c5(4, 0), p5(2, 1.923323);
 
-  std::cout << "Point a is " << a << std::endl;
-  std::cout << "Point b is " << b << std::endl;
-  std::cout << "Point c is " << c << std::endl;
-  std::cout << "Hit Point1 is " << hit1 << std::endl;
-  std::cout << "Hit Point2 is " << hit2 << std::endl;
-  std::cout << std::endl;
-  std::cout << "Hit Point1 is " << (bsp(a, b, c, hit1) ? "inside " : "outside ")
-    << "of the triangle!" << std::endl;
-  std::cout << "Hit Point1 is " << (bsp(a, b, c, hit2) ? "inside " : "outside ")
-    << "of the triangle!" << std::endl;
+  std::cout << "p1(4, 1) - " << bsp(a1, b1, c1, p1) << std::endl;
+  std::cout << "p2(0, 0) - " << bsp(a2, b2, c2, p2) << std::endl;
+  std::cout << "p3(1, 1) - " << bsp(a3, b3, c3, p3) << std::endl;
+  std::cout << "p4(2, 2) - " << bsp(a4, b4, c4, p4) << std::endl;
+  std::cout << "p5(2, 1.923323) - " << bsp(a5, b5, c5, p5) << std::endl;
+
   return 0;
 }

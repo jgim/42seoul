@@ -1,3 +1,6 @@
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 #include <iostream>
 #include <cmath>
 
@@ -24,4 +27,6 @@ public:
 	int		getRawBits(void) const;
 };
 
-std::ostream & operator<<(std::ostream & o, const Fixed & rhs);
+std::ostream & operator<<(std::ostream& out, const Fixed & rhs);
+
+#endif
