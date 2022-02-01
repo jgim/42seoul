@@ -25,6 +25,7 @@ class Dog : public Animal
 		Dog();
 		Dog(const Dog& dog);
 		Dog& operator=(const Dog& dog);
+		Animal&	operator=(const Animal &animal);
 
 		virtual void					makeSound() const;
 		virtual void					printIdeas();

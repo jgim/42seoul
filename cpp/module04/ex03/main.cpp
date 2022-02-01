@@ -47,7 +47,6 @@ int main()
 
 	std::cout << std::endl;
 
-
 	ICharacter* bob = new Character("bob");
 	std::cout << std::endl;
 	me->printSlot();

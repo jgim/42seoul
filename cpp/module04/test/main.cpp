@@ -18,42 +18,41 @@
 
 int main()
 {
-	Animal* animal[2];
-	animal[0] = new Dog();
-	animal[1] = new Cat();
+	Animal* dog = new Dog();
+	Animal* cat = new Cat();
 	std::cout << "-------------------" << std::endl;
 
-	animal[0]->addIdea("잠자기");
-	animal[0]->addIdea("먹기");
-	animal[0]->addIdea("뛰어놀기");
-	animal[0]->addIdea("물기");
-	animal[0]->addIdea("달리기");
-	animal[0]->addIdea("재롱부리기");
-	animal[0]->printIdeas();
-	animal[0]->chooseIdea();
-	animal[0]->makeSound();
+	dog->addIdea("잠자기");
+	dog->addIdea("먹기");
+	dog->addIdea("뛰어놀기");
+	dog->addIdea("물기");
+	dog->addIdea("달리기");
+	dog->addIdea("재롱부리기");
+	dog->printIdeas();
+	dog->chooseIdea();
+	dog->makeSound();
 
 	std::cout << "-------------------" << std::endl;
-	animal[1]->addIdea("잠자기");
-	animal[1]->addIdea("먹기");
-	animal[1]->addIdea("뛰어놀기");
-	animal[1]->addIdea("할퀴기");
- 	animal[1]->printIdeas();
- 	animal[1]->chooseIdea();
-	animal[1]->makeSound();
+	cat->addIdea("잠자기");
+	cat->addIdea("먹기");
+	cat->addIdea("뛰어놀기");
+	cat->addIdea("할퀴기");
+ 	cat->printIdeas();
+ 	cat->chooseIdea();
+	cat->makeSound();
 
 	std::cout << "-------------------" << std::endl;
-	delete animal[0];
-	delete animal[1];
+	delete dog;
+	delete cat;
 	std::cout << "-------------------" << std::endl;
 	std::cout << "-------------------" << std::endl;
+
 
 	Dog basic;
 	basic.addIdea("이건 테스트용입니다~");
 	basic.printIdeas();
 	Dog tmp = basic;
 	tmp.printIdeas();
-
 
 	std::cout << "-------------------" << std::endl;
 

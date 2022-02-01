@@ -18,12 +18,6 @@ Brain::Brain( void )
 	std::cout << "뇌 생성자를 호출하였습니다." << std::endl;
 }
 
-Brain::Brain(const Brain& brain)
-{
-	*this = brain;
-	std::cout << "뇌 복사 생성자를 호출하였습니다." << std::endl;
-}
-
 Brain::~Brain()
 {
 	std::cout << "뇌 소멸자를 호출하였습니다." << std::endl;
