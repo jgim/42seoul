@@ -24,6 +24,7 @@ class Replace
 		std::ofstream	_replace;
 		std::string		_s1;
 		std::string		_s2;
+
 	public:
 		Replace();
 		~Replace();

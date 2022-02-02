@@ -62,14 +62,17 @@ void	Karen::complain(std::string level)
 		case 0:
 			std::cout << std::endl;
 			Karen::debug();
+			break;
 
 		case 1:
 			std::cout << std::endl;
 			Karen::info();
+			break;
 
 		case 2:
 			std::cout << std::endl;
 			Karen::warning();
+			break;
 
 		case 3:
 			std::cout << std::endl;

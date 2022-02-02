@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/31 01:06:48 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/31 01:06:49 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed()
@@ -135,13 +147,15 @@ std::ostream& operator << (std::ostream& out, const Fixed& fixed)
 	return (out << fixed.toFloat());
 }
 
-const Fixed& Fixed::min(const Fixed& left_fixed, const Fixed& right_fixed) {
+const Fixed& Fixed::min(const Fixed& left_fixed, const Fixed& right_fixed)
+{
   if (left_fixed.getRawBits() < right_fixed.getRawBits())
     return left_fixed;
   return right_fixed;
 }
 
-const Fixed& Fixed::max(const Fixed& left_fixed, const Fixed& right_fixed) {
+const Fixed& Fixed::max(const Fixed& left_fixed, const Fixed& right_fixed)
+{
   if (left_fixed.getRawBits() > right_fixed.getRawBits())
     return left_fixed;
   return right_fixed;

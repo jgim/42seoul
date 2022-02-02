@@ -13,7 +13,7 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm():
-	Form("Presidential Pardon", 150, 150)
+	Form("Presidential Pardon", 25, 5)
 {
 	_target = "Unknown";
 	std::cout << "PresidentialPardonForm 생성자를 호출하였습니다." << std::endl;

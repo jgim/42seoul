@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/31 01:06:26 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/31 01:06:27 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed()
@@ -31,7 +43,7 @@ Fixed::Fixed(const Fixed &fixed)
 	*this = fixed;
 }
 
-Fixed &Fixed::operator=(const Fixed &fixed)
+Fixed &Fixed::operator = (const Fixed &fixed)
 {
   std::cout << "Assignation operator called" << std::endl;
   _value = fixed.getRawBits();
@@ -58,7 +70,7 @@ float	Fixed::toFloat(void) const
 	return ((float)_value / (float)(1 << _fixed_bits));
 }
 
-std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
+std::ostream& operator << (std::ostream &out, const Fixed &fixed)
 {
 	return (out << fixed.toFloat());
 }

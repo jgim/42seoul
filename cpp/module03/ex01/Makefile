@@ -16,7 +16,7 @@ SRCS	=	main.cpp \
 			ClapTrap.cpp \
 			ScavTrap.cpp \
 
-OBJS	=	$(SRCS:.c=.o)
+OBJS	=	$(SRCS:.cpp=.o)
 
 CXX 	= clang++
 
@@ -29,7 +29,11 @@ all		:	$(NAME)
 $(NAME)	:	$(OBJS)
 		$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
+clean	:
+			$(RM) $(OBJS)
+
 fclean	:
+			$(RM) $(OBJS)
 			$(RM) $(NAME)
 
 re		:	fclean all

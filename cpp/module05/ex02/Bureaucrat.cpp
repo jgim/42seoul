@@ -30,6 +30,7 @@ Bureaucrat::Bureaucrat(int grade): _name("Unknown"), _grade(grade)
 		throw(GradeTooHighException());
 	std::cout << _name << " 관료 생성자를 호출하였습니다." << std::endl;
 }
+
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade)
 {
 	if (_grade > 150)

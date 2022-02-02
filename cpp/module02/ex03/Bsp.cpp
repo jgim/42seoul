@@ -24,6 +24,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 
 
 	if ((tmp_a > 0 && tmp_b > 0 && tmp_c > 0) || (tmp_a < 0 && tmp_b < 0 && tmp_c < 0))
-		return 1;
-	return 0;
+		return true;
+	return false;
 }

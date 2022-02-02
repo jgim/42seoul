@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jgim <jgim@student.42seoul.kr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/31 01:06:01 by jgim              #+#    #+#             */
+/*   Updated: 2022/01/31 01:06:02 by jgim             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 Fixed::Fixed()
@@ -17,7 +29,7 @@ Fixed::Fixed(const Fixed &fixed)
 	*this = fixed;
 }
 
-Fixed &Fixed::operator=(const Fixed &fixed)
+Fixed &Fixed::operator = (const Fixed &fixed)
 {
   std::cout << "Assignation operator called" << std::endl;
   _value = fixed.getRawBits();

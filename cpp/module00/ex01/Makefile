@@ -18,9 +18,9 @@ SRCS	=	main.cpp \
 
 OBJS	=	$(SRCS:.c=.o)
 
-CC		=	clang++ -std=c++98
+CXX			=	clang++ -std=c++98
 
-FLAGS	=	-Wall -Werror -Wextra
+CXXFLAGS	=	-Wall -Werror -Wextra
 
 RM		=	rm -f
 

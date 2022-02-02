@@ -47,6 +47,15 @@ Form::Form(const Form& f):
 	std::cout << "Form 복사 생성자를 호출하였습니다." << std::endl;
 }
 
+Form& Form::operator=(const Form& form)
+{
+	*(const_cast<std::string*>(&_name)) = form._name;
+	*(const_cast<int*>(&_sign_grade)) = form._sign_grade;
+	*(const_cast<int*>(&_grade)) = form._grade;
+	std::cout << "관료 연산자(=)를 호출하였습니다." << std::endl;
+	return (*this);
+}
+
 int	Form::getGrade() const
 {
 	return _grade;
