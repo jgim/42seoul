@@ -1,30 +1,45 @@
-NAME = ft_container
-SOURCES_FOLDER	= ./tester/
-SOURCES			=	main.cpp
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jgim <jgim@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/05/29 17:55:58 by jgim              #+#    #+#              #
+#    Updated: 2022/05/29 17:55:59 by jgim             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = ft_containers
+SRCS_FOLDER	= ./tester/
+SRCS			=	main.cpp \
+					test_ft.cpp \
+					test_intra.cpp \
+					test_stl.cpp
 FLAGS 			= -Wall -Wextra -Werror --std=c++98
 
-OBJECTS_FOLDER 	= ./tester/obj/
+OBJS_FOLDER 	= ./tester/obj/
 
-OBJECT			= $(SOURCES:.cpp=.o)
-OBJECTS		 	= $(addprefix $(OBJECTS_FOLDER), $(OBJECT));
+OBJ			= $(SRCS:.cpp=.o)
+OBJS		 	= $(addprefix $(OBJS_FOLDER), $(OBJ));
 
-$(OBJECTS_FOLDER)%.o :	$(SOURCES_FOLDER)%.cpp
-	@mkdir -p	$(OBJECTS_FOLDER)
+$(OBJS_FOLDER)%.o :	$(SRCS_FOLDER)%.cpp
+	@mkdir -p	$(OBJS_FOLDER)
 	@echo "Compiling: $<"
 	@clang++ $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS)
-	@clang++ $(FLAGS) -o $(NAME) $(OBJECTS)
+$(NAME): $(OBJS)
+	@clang++ $(FLAGS) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
 clean:
-	@echo "Cleaning: $(OBJECTS_FOLDER)"
-	@rm -rf $(OBJECTS_FOLDER)
+		@echo "Cleaning previous objs: $(OBJS_FOLDER)"
+		@rm -rf $(OBJS)
 
 fclean: clean
-	@echo "Cleaning: $(NAME)"
-	@rm -f $(NAME)
+		@echo "Cleaning bins: $(NAME)"
+		@rm -f $(NAME) ft_containers
 
 re: fclean all
 

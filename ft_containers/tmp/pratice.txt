@@ -1,2 +1,0 @@
-<allocator 설명>
-https://woo-dev.tistory.com/51#:~:text=allocate%20%ED%95%A8%EC%88%98%EB%8A%94%20%EC%B4%88%EA%B8%B0%ED%99%94%EB%90%98%EC%A7%80,%EC%88%98%20%EC%9E%88%EB%8A%94%20%EA%B3%B5%EA%B0%84%EC%9D%84%20%EB%A7%8C%EB%93%AD%EB%8B%88%EB%8B%A4.
